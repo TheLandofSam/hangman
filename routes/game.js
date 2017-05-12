@@ -8,7 +8,7 @@ router.route('/')
   .get(getGame)
 
 router.route('/')
-  .post(createGame)
+  .post(startGame)
 
 /*function getGame(req, res, next){
   Game.find({}).then(function(game){
@@ -16,9 +16,13 @@ router.route('/')
   }) 
 }*/
 
-function createGame(req, res, next){
+function startGame(req, res, next){
   var newGame = req.body
-  Game.create(newGame).then(function(createdGame){
-    res.send(createdGame)
+  Game.create(newGame).then(function(startGame){
+    res.send(startGame)
   })
+}
+
+function checkGame(req, res, next){
+  
 }
