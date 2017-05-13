@@ -4,7 +4,7 @@ function Controller() {
 
   this.startGame = function () {
     $('.level').css("display", "none")
-    $('body').css("background-image", "url(asset/image/play2.gif)")
+    $('body').css("background-image", "url(http://wallpapercave.com/wp/6SKGas2.png)")
     service.startGame(draw, fail)
   }
 
