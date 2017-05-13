@@ -8,8 +8,14 @@ exports.router = router
 router.route('/guess')
   .post(checkGuess)
 
-router.route('/start-game')
-  .post(startGame)
+router.route('/start-gameh')
+  .post(startGameH)
+
+router.route('/start-gamee')
+  .post(startGameE)
+
+router.route('/start-gamem')
+  .post(startGameM)
 
 /*function getGame(req, res, next){
   Game.find({}).then(function(game){
@@ -30,14 +36,60 @@ function checkGuess(req, res, next) {
   })
 }
 
+function getRandomIntInclusive(min, max) {
+    var min = Math.ceil(min);
+    var max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
-function startGame(req, res, next) {
-  request.get('http://setgetgo.com/randomword/get.php?len=10', function (error, response, body) {
+function startGameH(req, res, next) {
+  var number = getRandomIntInclusive(3,8)
+  var url = 'http://setgetgo.com/randomword/get.php?len='
+  request.get(url + number, function (error, response, body) {
     console.log(error, response, body)
     var newGame = {
       word: body,
       correct: [],
-      incorrect: []
+      incorrect: [],
+      maxGuesses: 4
+    }
+    Game.create(newGame).then(function (game) {
+      checkGame(game, "", function (gameState) {
+        res.send(gameState)
+      })
+    })
+  })
+}
+
+function startGameE(req, res, next) {
+  var number = getRandomIntInclusive(15,20)
+  var url = 'http://setgetgo.com/randomword/get.php?len='
+  request.get(url + number, function (error, response, body) {
+    console.log(error, response, body)
+    var newGame = {
+      word: body,
+      correct: [],
+      incorrect: [],
+      maxGuesses: 6
+    }
+    Game.create(newGame).then(function (game) {
+      checkGame(game, "", function (gameState) {
+        res.send(gameState)
+      })
+    })
+  })
+}
+
+function startGameM(req, res, next) {
+  var number = getRandomIntInclusive(9,14)
+  var url = 'http://setgetgo.com/randomword/get.php?len='
+  request.get(url + number, function (error, response, body) {
+    console.log(error, response, body)
+    var newGame = {
+      word: body,
+      correct: [],
+      incorrect: [],
+      maxGuesses: 5
     }
     Game.create(newGame).then(function (game) {
       checkGame(game, "", function (gameState) {

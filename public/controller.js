@@ -2,6 +2,18 @@ function Controller() {
 
   var service = new Service()
 
+
+  this.startGameH = function () {
+    service.startGameH(draw, fail)
+  }
+
+  this.startGameE = function () {
+    service.startGameE(draw, fail)
+  }
+
+  this.startGameM = function () {
+    service.startGameM(draw, fail)
+  }
   this.startGame = function () {
     $('.level').css("display", "none")
     $('body').css("background-image", "url(http://wallpapercave.com/wp/6SKGas2.png)")
@@ -28,7 +40,6 @@ function Controller() {
         var char = charMap[i];
         buttonTemp += `
         <button onclick='app.controllers.ctrl.guess(event)' value='${charMap[i]}'>${charMap[i]}</button>
-        
         `
       }
     elem.innerHTML = template
@@ -38,6 +49,7 @@ function Controller() {
   function fail(error) {
     console.error("Something broke", error)
   }
+
   function getCharMap(data){
     var usedLet = data.incorrect.concat([...data.correct])
     var charMap = 'abcdefghijklmnopqrstubwxyz'.split('')
