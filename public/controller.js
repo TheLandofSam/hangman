@@ -28,30 +28,49 @@ function Controller() {
     var elem = document.getElementById('display')
     var button = document.getElementById('button')
     var buttonTemp = ''
+    var winCount = 0
     var wordTemplate = data.word.join(' ')
     var charMap = getCharMap(data)
+    var countDown = data.maxGuesses - data.incorrect.length
     var template = `
-      <h3>${data.incorrect.length}</h3>
+      <h3>Guesses ${countDown}<h3>
       <h3>${wordTemplate}</h3>
       `
-    //if(data.word == )
-    for (var i = 0; i < charMap.length; i++) {
-      var char = charMap[i];
-      buttonTemp += `
-        <button onclick='app.controllers.ctrl.guess(event)' value='${charMap[i]}' class="letterBtn">${charMap[i]}</button>
-        `
+    for (var c = 0; c < data.word.length; c++) {
+      var character = data.word[c];
+      if (character != "_") {
+        winCount++
+      }
     }
-    elem.innerHTML = template
-    button.innerHTML = buttonTemp
 
+    if (winCount == data.word.length) {
+      data.victory = true
+    }
+
+    if (data.victory == true) {
+      template += `
+      <h1>win</h1>
+      `
+      button.innerHTML = ""
+      elem.innerHTML = template
+    }
     if (data.maxGuesses == data.incorrect.length) {
       template += `
       <h1>lose</h1>
       `
+      button.innerHTML = ""
       elem.innerHTML = template
     }
-
-
+    if(data.victory == false && data.maxGuesses != data.incorrect.length){
+      for (var i = 0; i < charMap.length; i++) {
+        var char = charMap[i];
+        buttonTemp += `
+        <button onclick='app.controllers.ctrl.guess(event)' value='${charMap[i]}' class="letterBtn">${charMap[i]}</button>
+        `
+      }
+      elem.innerHTML = template
+      button.innerHTML = buttonTemp
+    }
   }
 
 

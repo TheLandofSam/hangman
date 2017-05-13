@@ -39,7 +39,7 @@ function startGameH(req, res, next) {
   request.get(url + number, function (error, response, body) {
     console.log(error, response, body)
     var newGame = {
-      word: body,
+      word: body.toLowerCase(),
       correct: [],
       incorrect: [],
       maxGuesses: 4
@@ -58,7 +58,7 @@ function startGameE(req, res, next) {
   request.get(url + number, function (error, response, body) {
     console.log(error, response, body)
     var newGame = {
-      word: body,
+      word: body.toLowerCase(),
       correct: [],
       incorrect: [],
       maxGuesses: 6
@@ -77,7 +77,7 @@ function startGameM(req, res, next) {
   request.get(url + number, function (error, response, body) {
     console.log(error, response, body)
     var newGame = {
-      word: body,
+      word: body.toLowerCase(),
       correct: [],
       incorrect: [],
       maxGuesses: 5
@@ -102,12 +102,12 @@ function checkGame(game, guess, callWhenDone) {
     endTime: game.endTime,
     maxGuesses: game.maxGuesses
   }
-
+  if(game.word == gameState.word){
+    gameState.victory = true
+  }
   for (var j = 0; j < game.word.length; j++) {
     gameState.word.push("_")
   }
-  
-
   if (game.victory == true) {
     return callWhenDone(gameState)
   }
