@@ -22,7 +22,7 @@ body {
   border: 1px solid #08fdf5;
   background-color: #08fdf5;
   box-shadow: 0 0 50px #08fdf5, 0 0 100px #08fdf5;
-  font-size: 100px;
+  font-size: 22px;
   color: #333;
   text-align: center;
   border-radius: 2px;
@@ -42,7 +42,6 @@ body {
 
 #display h3 {
   font-size: 50px;
-  box-shadow: 0 0 100px #FD0100;
 }
 
 img {
