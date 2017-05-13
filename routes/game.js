@@ -106,6 +106,7 @@ function checkGame(game, guess, callWhenDone) {
   for (var j = 0; j < game.word.length; j++) {
     gameState.word.push("_")
   }
+  
 
   if (game.victory == true) {
     return callWhenDone(gameState)
