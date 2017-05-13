@@ -31,7 +31,7 @@ function Controller() {
     var wordTemplate = data.word.join(' ')
     var charMap = getCharMap(data)
     var template = `
-      <h3>${data.incorrect}</h3>
+      <h3>${data.incorrect.length}</h3>
       <h3>${wordTemplate}</h3>
       `
     //if(data.word == )
