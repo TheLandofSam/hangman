@@ -22,9 +22,25 @@ body {
   border: 1px solid #08fdf5;
   background-color: #08fdf5;
   box-shadow: 0 0 50px #08fdf5, 0 0 100px #08fdf5;
-  font-size: 20px;
+  font-size: 24px;
   color: #333;
   text-align: center;
+}
+
+#button {
+  display: -webkit-flex;
+  justify-content: space-around;
+}
+
+#display {
+  display: -webkit-flex;
+  justify-content: center;
+  margin: 100px auto;
+  font-size: 50px;
+}
+
+#display h3 {
+  font-size: 50px;
 }
 
 img {
