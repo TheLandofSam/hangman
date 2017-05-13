@@ -1,28 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="asset/animate.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900" rel="stylesheet">
   <link rel="stylesheet" href="asset/main.min.css">
   <title>HANGMAN</title>
 </head>
 
 <body>
 
-  <h1>HANGMAN</h1>
-  <img src="http://www.justhangman.com/images/hangman_0.gif" alt="">
-  <button onclick="app.controllers.ctrl.startGame()" id="start-button">Play Game</button>
-  <div id="display"></div>
+  <div class="container">
 
-  <div>
-  <form onsubmit="app.controllers.ctrl.guess(event)">
-    <input type="text" name="guess">
-    <button type="submit">Guess</button>
-  </form>
+    <div class="row level">
+      <div class="col-md-4">
+        <br><br>
+        <img src="http://www.pngmart.com/files/2/Pac-Man-Ghost-PNG-File.png" alt="" width="40px" onclick="app.controllers.ctrl.startGame()"
+          id="start-button" class="animated infinite shake">
+        <p class="animated infinite shake levels">easy</p>
+      </div>
+      <div class="col-md-4">
+        <br><br>
+        <span onclick="app.controllers.ctrl.startGame()" id="start-button">
+      <img src="http://www.pngmart.com/files/2/Pac-Man-Ghost-PNG-File.png" alt="" width="40px" class="animated infinite shake">
+      <img src="http://www.pngmart.com/files/2/Pac-Man-Ghost-PNG-File.png" alt="" width="40px" class="animated infinite shake">
+      </span>
+      <p class="animated infinite shake levels">medium</p>
+      </div>
+      <div class="col-md-4">
+        <br><br>
+        <span onclick="app.controllers.ctrl.startGame()" id="start-button">
+      <img src="http://www.pngmart.com/files/2/Pac-Man-Ghost-PNG-File.png" alt="" width="40px" class="animated infinite shake">
+      <img src="http://www.pngmart.com/files/2/Pac-Man-Ghost-PNG-File.png" alt="" width="40px" class="animated infinite shake">
+      <img src="http://www.pngmart.com/files/2/Pac-Man-Ghost-PNG-File.png" alt="" width="40px" class="animated infinite shake">
+      </span>
+      <p class="animated infinite shake levels">hard hard hard</p>
+      </div>
+      <h1 class="title">hangPacman</h1>
+    </div>
+    <div id="display"></div>
+
+    <div>
+      <!--<form onsubmit="app.controllers.ctrl.guess(event)">
+        <input type="text" name="guess">
+        <button type="submit">Guess</button>
+      </form>-->
+    </div>
+    <div id="button"></div>
   </div>
-  <div id="button"></div>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
