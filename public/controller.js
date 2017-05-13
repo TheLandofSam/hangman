@@ -35,7 +35,7 @@ function Controller() {
       template +=`
       <h1>win</h1>
       `
-
+    }
     for (var i = 0; i < charMap.length; i++) {
       var char = charMap[i];
       buttonTemp += `
