@@ -3,6 +3,8 @@ function Controller() {
   var service = new Service()
 
   this.startGame = function () {
+    $('.level').css("display", "none")
+    $('body').css("background-image", "url(asset/image/play2.gif)")
     service.startGame(draw, fail)
   }
 
