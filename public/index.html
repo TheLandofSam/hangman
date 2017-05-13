@@ -12,6 +12,10 @@
 <body>
 
   <h1>POOP</h1>
+  <form onsubmit="app.controllers.controller.startGame(event)">
+    <input type="text" name="guess">
+    <button type="submit">guess</button>
+  </form>
   <button onclick="app.controllers.ctrl.startGame()" id="start-button">Play Game</button>
 
 
