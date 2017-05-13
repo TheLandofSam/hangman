@@ -1,9 +1,9 @@
-function Controller(){
+function Controller() {
 
   var service = new Service()
 
-  this.startGame = function (){
-    service.startGame(draw,fail)
+  this.startGame = function () {
+    service.startGame(draw, fail)
   }
 
   this.guess = function (event) {
@@ -12,9 +12,18 @@ function Controller(){
   }
 
 
-  function draw(){}
+  function draw(data) {
+    var elem = document.getElementById('display')
+    var wordTemplate = data.word.join(' ')
+    var template = `
+      <h3>${data.incorrect}</h3>
+      <h3>${wordTemplate}</h3>
+      `
 
-  function fail(error){
+    elem.innerHTML = template
+  }
+
+  function fail(error) {
     console.error("Something broke", error)
   }
 }
