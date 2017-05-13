@@ -33,7 +33,7 @@ function Controller() {
     var charMap = getCharMap(data)
     var countDown = data.maxGuesses - data.incorrect.length
     var template = `
-      <h3>Guesses ${countDown}<h3>
+      <h3>Guesses${" " + countDown}<h3>
       <h3>${wordTemplate}</h3>
       `
     for (var c = 0; c < data.word.length; c++) {
@@ -49,15 +49,16 @@ function Controller() {
 
     if (data.victory == true) {
       template += `
-      <h1>win</h1>
+      <h3>win</h3>
       `
       button.innerHTML = ""
       elem.innerHTML = template
     }
     if (data.maxGuesses == data.incorrect.length) {
       template += `
-      <h1>lose</h1>
+      <h3>lose</h3>
       `
+      $('.body').css('background-image', 'url("/asset/image/gameover.gif")')
       button.innerHTML = ""
       elem.innerHTML = template
     }

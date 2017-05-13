@@ -35,7 +35,7 @@ body {
 
 #display {
   display: -webkit-flex;
-  justify-content: center;
+  justify-content: space-around;
   margin: 100px auto;
   font-size: 50px;
 }
