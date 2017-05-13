@@ -17,16 +17,7 @@ router.route('/start-gamee')
 router.route('/start-gamem')
   .post(startGameM)
 
-/*function getGame(req, res, next){
-  Game.find({}).then(function(game){
-    res.send(game)
-  }) 
-}*/
-
 function checkGuess(req, res, next) {
-  // find game by ID
-  // check the game
-  // send back game state
   var gameid = req.body._id
   var guess = req.body.letter
   Game.findById(gameid).then(function (game) {
@@ -101,21 +92,25 @@ function startGameM(req, res, next) {
 
 function checkGame(game, guess, callWhenDone) {
 
-
   var letterFound = false
   var gameState = {
     word: [],
     correct: game.correct,
     incorrect: game.incorrect,
-    _id: game._id
+    _id: game._id,
+    victory: game.victory,
+    endTime: game.endTime
   }
 
   for (var j = 0; j < game.word.length; j++) {
     gameState.word.push("_")
   }
 
-  if (game.victory == true || game.maxGuesses == game.incorrect.length) {
-    return callWhenDone("Game is over")
+  if (game.victory == true) {
+    return callWhenDone(gameState)
+  }
+  if(game.maxGuesses == game.incorrect.length){
+    return callWhenDone(gameState)
   }
   if (guess != "") {
     if (game.word.indexOf(guess) > -1) {
