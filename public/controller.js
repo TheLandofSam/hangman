@@ -34,7 +34,7 @@ function Controller() {
       <h3>${data.incorrect}</h3>
       <h3>${wordTemplate}</h3>
       `
-
+    //if(data.word == )
     for (var i = 0; i < charMap.length; i++) {
       var char = charMap[i];
       buttonTemp += `
@@ -50,20 +50,8 @@ function Controller() {
       `
       elem.innerHTML = template
     }
-    else {
-      for (var i = 0; i < charMap.length; i++) {
-        var char = charMap[i];
-        buttonTemp += `
-        <button onclick='app.controllers.ctrl.guess(event)' value='${charMap[i]}'>${charMap[i]}</button>
-        `
-      }
-      template += `
-      <h3>${data.incorrect}</h3>
-      <h3>${wordTemplate}</h3>
-      `
-      elem.innerHTML = template
-      button.innerHTML = buttonTemp
-    }
+
+
   }
 
 
