@@ -42,6 +42,7 @@ body {
 
 #display h3 {
   font-size: 50px;
+  box-shadow: 0 0 100px #FD0100;
 }
 
 img {
