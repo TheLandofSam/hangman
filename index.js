@@ -2,6 +2,7 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
 var cors = require('cors')
+var request = require('request')
 var Game = require('./models/game')
 var routes = require('./routes')
 

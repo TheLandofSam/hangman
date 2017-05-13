@@ -1,4 +1,5 @@
 const router = require('express').Router()
+var request = require('request')
 var Game = require('./../models/game')
 
 exports.mountPath = '/game'
@@ -29,15 +30,19 @@ function checkGuess(req, res, next) {
   })
 }
 
+
 function startGame(req, res, next) {
-  var newGame = {
-    word: 'cata',
-    correct: [],
-    incorrect: []
-  }
-  Game.create(newGame).then(function (game) {
-    checkGame(game, "", function (gameState) {
-      res.send(gameState)
+  request.get('http://setgetgo.com/randomword/get.php?len=10', function (error, response, body) {
+    console.log(error, response, body)
+    var newGame = {
+      word: body,
+      correct: [],
+      incorrect: []
+    }
+    Game.create(newGame).then(function (game) {
+      checkGame(game, "", function (gameState) {
+        res.send(gameState)
+      })
     })
   })
 }
