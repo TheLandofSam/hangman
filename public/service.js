@@ -16,7 +16,6 @@ function Service() {
 
   this.startGameE = function (draw, fail) {
     $.post(urle).then(function (data) {
-      console.log(data)
       draw(data)
       currentGameId = data._id
     }).catch(fail)
