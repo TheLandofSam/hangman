@@ -2,8 +2,16 @@ function Controller() {
 
   var service = new Service()
 
-  this.startGame = function () {
-    service.startGame(draw, fail)
+  this.startGameH = function () {
+    service.startGameH(draw, fail)
+  }
+
+  this.startGameE = function () {
+    service.startGameE(draw, fail)
+  }
+
+  this.startGameM = function () {
+    service.startGameM(draw, fail)
   }
 
   this.guess = function (event) {
@@ -26,7 +34,6 @@ function Controller() {
         var char = charMap[i];
         buttonTemp += `
         <button onclick='app.controllers.ctrl.guess(event)' value='${charMap[i]}'>${charMap[i]}</button>
-        
         `
       }
     elem.innerHTML = template
@@ -36,6 +43,7 @@ function Controller() {
   function fail(error) {
     console.error("Something broke", error)
   }
+
   function getCharMap(data){
     var usedLet = data.incorrect.concat([...data.correct])
     var charMap = 'abcdefghijklmnopqrstubwxyz'.split('')
