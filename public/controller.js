@@ -30,10 +30,12 @@ function Controller() {
     var buttonTemp = ''
     var wordTemplate = data.word.join(' ')
     var charMap = getCharMap(data)
-    var template = `
-      <h3>${data.incorrect}</h3>
-      <h3>${wordTemplate}</h3>
+    var template = ''
+    if (data.victory == true) {
+      template +=`
+      <h1>win</h1>
       `
+<<<<<<< HEAD
     for (var i = 0; i < charMap.length; i++) {
       var char = charMap[i];
       buttonTemp += `
@@ -42,6 +44,30 @@ function Controller() {
     }
     elem.innerHTML = template
     button.innerHTML = buttonTemp
+=======
+      elem.innerHTML = template
+    }
+    if(data.maxGuesses == data.incorrect.length){
+      template +=`
+      <h1>lose</h1>
+      `
+      elem.innerHTML = template
+    }
+    else {
+      for (var i = 0; i < charMap.length; i++) {
+        var char = charMap[i];
+        buttonTemp += `
+        <button onclick='app.controllers.ctrl.guess(event)' value='${charMap[i]}'>${charMap[i]}</button>
+        `
+      }
+      template +=`
+      <h3>${data.incorrect}</h3>
+      <h3>${wordTemplate}</h3>
+      `
+      elem.innerHTML = template
+      button.innerHTML = buttonTemp
+    }
+>>>>>>> 2658180dc1cc7b1109a1f8561f4d47f6fb6d6d59
   }
 
   function fail(error) {

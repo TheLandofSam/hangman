@@ -99,7 +99,8 @@ function checkGame(game, guess, callWhenDone) {
     incorrect: game.incorrect,
     _id: game._id,
     victory: game.victory,
-    endTime: game.endTime
+    endTime: game.endTime,
+    maxGuesses: game.maxGuesses
   }
 
   for (var j = 0; j < game.word.length; j++) {
