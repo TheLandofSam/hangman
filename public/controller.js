@@ -35,7 +35,7 @@ function Controller() {
       template +=`
       <h1>win</h1>
       `
-<<<<<<< HEAD
+
     for (var i = 0; i < charMap.length; i++) {
       var char = charMap[i];
       buttonTemp += `
@@ -44,7 +44,7 @@ function Controller() {
     }
     elem.innerHTML = template
     button.innerHTML = buttonTemp
-=======
+
       elem.innerHTML = template
     }
     if(data.maxGuesses == data.incorrect.length){
@@ -67,7 +67,7 @@ function Controller() {
       elem.innerHTML = template
       button.innerHTML = buttonTemp
     }
->>>>>>> 2658180dc1cc7b1109a1f8561f4d47f6fb6d6d59
+
   }
 
   function fail(error) {
