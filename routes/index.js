@@ -15,4 +15,4 @@ files.forEach(function (file) {
     if (!controller.router) return;
     
     exports.router.use(controller.mountPath || '', controller.router);
-});
+}).listen(process.env.PORT);
