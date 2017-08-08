@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DarrylKilzer/hangman.git"
+    "url": "git+https://github.com/TheLandofSam/hangman.git"
   },
-  "author": "Darryl Kilzer, Kaleb Aaron, Jason Nguyen, Samantha Tanner, Kyle Hyer, & Rory Walker",
+  "author": "Darryl Kilzer, Kaleb Aaron, Jason Nguyen, Samantha Tanner, & Kyle Hyer",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DarrylKilzer/hangman/issues"
+    "url": "https://github.com/TheLandofSam/hangman/issues"
   },
-  "homepage": "https://github.com/DarrylKilzer/hangman#readme",
+  "homepage": "https://github.com/TheLandofSam/hangman#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
     "cors": "^2.8.3",
